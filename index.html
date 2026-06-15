@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>INK HEART — Тату-студия в Санкт-Петербурге</title>
+  <meta name="description" content="INK HEART — профессиональная тату-студия в Санкт-Петербурге с 2015 года. Реализм, графика, японская традиция. Только стерильные материалы. Запись онлайн." />
+  <meta name="keywords" content="тату студия, татуировка, Санкт-Петербург, реализм, блэкворк, японская тату, INK HEART" />
+  <meta property="og:title" content="INK HEART — Тату-студия в Санкт-Петербурге" />
+  <meta property="og:description" content="Профессиональная тату-студия с 2015 года. Реализм, графика, японская традиция. Твоё тело — наш холст." />
+  <meta property="og:image" content="images/logo.png" />
+  <meta property="og:url" content="https://inkheart.ru" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="gl-canvas"></canvas>
+  <div class="grain-overlay"></div>
+
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="loader-ink">INK</span>
+        <span class="loader-heart">HEART</span>
+      </div>
+      <div class="loader-bar-track"><div id="progress-bar"></div></div>
+      <p class="loader-hint">Загрузка...</p>
+    </div>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <img src="images/logo.png" alt="INK HEART" class="nav-logo" />
+      <span class="nav-brand-text"><span class="brand-ink">INK</span> <span class="brand-heart">HEART</span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#services" class="nav-link">Стили</a></li>
+      <li><a href="#portfolio" class="nav-link">Работы</a></li>
+      <li><a href="#process" class="nav-link">Процесс</a></li>
+      <li><a href="#about" class="nav-link">О нас</a></li>
+      <li><a href="#contact" class="nav-link cta-nav">Запись</a></li>
+    </ul>
+    <button class="burger" id="burger-btn" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-drawer" id="nav-drawer">
+    <button class="drawer-close" id="drawer-close" aria-label="Закрыть">&#10005;</button>
+    <div class="drawer-brand"><span class="drawer-ink">INK</span><span class="drawer-heart">HEART</span></div>
+    <ul class="drawer-links">
+      <li><a href="#services" class="drawer-link">Стили</a></li>
+      <li><a href="#portfolio" class="drawer-link">Работы</a></li>
+      <li><a href="#process" class="drawer-link">Процесс</a></li>
+      <li><a href="#about" class="drawer-link">О нас</a></li>
+      <li><a href="#contact" class="drawer-link drawer-cta">Записаться</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <p>+7 (999) 234-56-78</p>
+      <p>Невский пр., 88</p>
+    </div>
+  </div>
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+  <div id="ui-layer">
+    <div class="stage">
+
+      <!-- SECTION 0 — HERO -->
+      <section class="page is-active" data-index="0" id="hero">
+        <div class="hero-content">
+          <div class="hero-tag reveal-3d">&#128394; Тату-студия &middot; Санкт-Петербург &middot; с 2015</div>
+          <h1 class="hero-title reveal-3d">
+            <span class="title-main">INK</span>
+            <span class="title-accent">HEART</span>
+          </h1>
+          <p class="hero-art reveal-3d">Искусство на коже</p>
+          <p class="hero-subtitle reveal-3d">Твоё тело — наш холст</p>
+          <p class="hero-desc reveal-3d">Реализм, графика, японская традиция.<br />Работаем только со стерильными материалами.</p>
+          <div class="hero-cta reveal-3d">
+            <a href="#portfolio" class="btn btn-primary">Портфолио</a>
+            <a href="#contact" class="btn btn-outline">Записаться</a>
+          </div>
+          <div class="hero-divider reveal-3d">
+            <span class="divider-line"></span>
+            <span class="divider-icon">&#10022;</span>
+            <span class="divider-line"></span>
+          </div>
+        </div>
+        <div class="scroll-hint">
+          <span class="scroll-text">Листай вниз</span>
+          <span class="scroll-arrow">&#8595;</span>
+        </div>
+      </section>
+
+      <!-- SECTION 1 — УСЛУГИ -->
+      <section class="page" data-index="1" id="services">
+        <div class="section-container">
+          <div class="section-header reveal-3d">
+            <span class="section-eyebrow">Направления</span>
+            <h2 class="section-title">СТИЛИ</h2>
+            <p class="section-subtitle">Работаем с любым направлением</p>
+          </div>
+          <div class="cards-grid reveal-3d">
+            <div class="card card-service">
+              <div class="card-icon">&#128395;</div>
+              <h3 class="card-title">Black &amp; Grey Realism</h3>
+              <div class="card-divider"></div>
+              <p class="card-text">Фотореалистичные портреты и природные мотивы в чёрно-серой технике с тонкой градацией тонов</p>
+              <div class="card-tag">Реализм</div>
+            </div>
+            <div class="card card-service">
+              <div class="card-icon">&#128308;</div>
+              <h3 class="card-title">Colour Realism</h3>
+              <div class="card-divider"></div>
+              <p class="card-text">Живые цвета, объём и фотографическая точность. Яркие работы, которые не теряют насыщенность</p>
+              <div class="card-tag">Цвет</div>
+            </div>
+            <div class="card card-service">
+              <div class="card-icon">&#11035;</div>
+              <h3 class="card-title">Blackwork &amp; Geometric</h3>
+              <div class="card-divider"></div>
+              <p class="card-text">Чёрные геометрические и орнаментальные работы — мандалы, паттерны, племенные мотивы</p>
+              <div class="card-tag">Блэкворк</div>
+            </div>
+            <div class="card card-service">
+              <div class="card-icon">&#127800;</div>
+              <h3 class="card-title">Japanese Traditional</h3>
+              <div class="card-divider"></div>
+              <p class="card-text">Традиционные японские мотивы (Irezumi): драконы, карпы, хризантемы, самураи</p>
+              <div class="card-tag">Японский</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2 — ПОРТФОЛИО -->
+      <section class="page" data-index="2" id="portfolio">
+        <div class="section-container">
+          <div class="section-header reveal-3d">
+            <span class="section-eyebrow">Галерея</span>
+            <h2 class="section-title">НАШИ РАБОТЫ</h2>
+            <p class="section-subtitle">Избранные татуировки</p>
+          </div>
+          <div class="cards-grid reveal-3d">
+            <div class="card card-portfolio">
+              <div class="portfolio-img-wrap">
+                <div class="portfolio-placeholder port-1">
+                  <div class="port-icon">&#127912;</div>
+                  <div class="port-style">BLACK &amp; GREY</div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <h3 class="portfolio-title">Портрет реализм</h3>
+                <p class="portfolio-meta">Рукав &middot; 40 часов работы</p>
+              </div>
+            </div>
+            <div class="card card-portfolio">
+              <div class="portfolio-img-wrap">
+                <div class="portfolio-placeholder port-2">
+                  <div class="port-icon">&#129409;</div>
+                  <div class="port-style">JAPANESE</div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <h3 class="portfolio-title">Японский дракон</h3>
+                <p class="portfolio-meta">Спина &middot; традиционный стиль</p>
+              </div>
+            </div>
+            <div class="card card-portfolio">
+              <div class="portfolio-img-wrap">
+                <div class="portfolio-placeholder port-3">
+                  <div class="port-icon">&#11042;</div>
+                  <div class="port-style">BLACKWORK</div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <h3 class="portfolio-title">Геометрический рукав</h3>
+                <p class="portfolio-meta">Блэкворк с мандалой</p>
+              </div>
+            </div>
+            <div class="card card-portfolio">
+              <div class="portfolio-img-wrap">
+                <div class="portfolio-placeholder port-4">
+                  <div class="port-icon">&#127807;</div>
+                  <div class="port-style">FINE LINE</div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <h3 class="portfolio-title">Ботаника</h3>
+                <p class="portfolio-meta">Тонкие линии &middot; женское плечо</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3 — ПРОЦЕСС -->
+      <section class="page" data-index="3" id="process">
+        <div class="section-container">
+          <div class="section-header reveal-3d">
+            <span class="section-eyebrow">Работа с нами</span>
+            <h2 class="section-title">КАК МЫ РАБОТАЕМ</h2>
+          </div>
+          <div class="process-grid reveal-3d">
+            <div class="process-step">
+              <div class="step-num">01</div>
+              <div class="step-icon">&#128172;</div>
+              <h3 class="step-title">Консультация</h3>
+              <p class="step-text">Обсуждаем идею, стиль и размещение. Бесплатно и без обязательств — приходи пообщаться</p>
+            </div>
+            <div class="process-step">
+              <div class="step-num">02</div>
+              <div class="step-icon">&#127912;</div>
+              <h3 class="step-title">Эскиз</h3>
+              <p class="step-text">Индивидуальный дизайн под твой запрос. Рисуем до тех пор, пока ты не скажешь «да»</p>
+            </div>
+            <div class="process-step">
+              <div class="step-num">03</div>
+              <div class="step-icon">&#128203;</div>
+              <h3 class="step-title">Трафарет</h3>
+              <p class="step-text">Примеряем и утверждаем расположение на теле. Ты видишь результат до начала работы</p>
+            </div>
+            <div class="process-step">
+              <div class="step-num">04</div>
+              <div class="step-icon">&#9989;</div>
+              <h3 class="step-title">Тату + уход</h3>
+              <p class="step-text">Работаем в комфортной атмосфере и даём подробные рекомендации по заживлению</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4 — О НАС -->
+      <section class="page" data-index="4" id="about">
+        <div class="section-container">
+          <div class="about-layout">
+            <div class="about-left reveal-3d">
+              <span class="section-eyebrow">Студия</span>
+              <h2 class="section-title">О СТУДИИ</h2>
+              <p class="about-sub">Профессиональная тату-студия с 2015 года</p>
+              <p class="about-text">INK HEART — это место, где идея становится искусством. Мы создаём уникальные работы, которые останутся с тобой на всю жизнь.</p>
+              <p class="about-text">Только стерильные расходники, только одноразовые иглы, только профессиональные краски ведущих мировых брендов.</p>
+              <div class="about-badges">
+                <span class="badge">Стерильность гарантирована</span>
+                <span class="badge">Одноразовые иглы</span>
+                <span class="badge">Профкраски</span>
+              </div>
+            </div>
+            <div class="about-right reveal-3d">
+              <div class="facts-grid">
+                <div class="fact-card">
+                  <div class="fact-num">9</div>
+                  <div class="fact-label">лет опыта</div>
+                </div>
+                <div class="fact-card">
+                  <div class="fact-num">5000<span class="fact-plus">+</span></div>
+                  <div class="fact-label">работ</div>
+                </div>
+                <div class="fact-card">
+                  <div class="fact-num">4</div>
+                  <div class="fact-label">мастера</div>
+                </div>
+                <div class="fact-card">
+                  <div class="fact-num">100<span class="fact-plus">%</span></div>
+                  <div class="fact-label">стерильность</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5 — КОНТАКТЫ -->
+      <section class="page" data-index="5" id="contact">
+        <div class="section-container">
+          <div class="section-header reveal-3d">
+            <span class="section-eyebrow">Связаться</span>
+            <h2 class="section-title">ЗАПИСАТЬСЯ</h2>
+            <p class="section-subtitle">Забронируй своё время</p>
+          </div>
+          <div class="contact-layout reveal-3d">
+            <div class="contact-info">
+              <div class="contact-card">
+                <div class="contact-item">
+                  <span class="contact-icon">&#128222;</span>
+                  <div>
+                    <div class="contact-label">Телефон</div>
+                    <a href="tel:+79992345678" class="contact-value">+7 (999) 234-56-78</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon">&#9993;</span>
+                  <div>
+                    <div class="contact-label">Email</div>
+                    <a href="mailto:book@inkheart.ru" class="contact-value">book@inkheart.ru</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon">&#128205;</span>
+                  <div>
+                    <div class="contact-label">Адрес</div>
+                    <span class="contact-value">Санкт-Петербург,<br />Невский пр., 88</span>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon">&#128336;</span>
+                  <div>
+                    <div class="contact-label">Режим работы</div>
+                    <span class="contact-value">Вт&ndash;Вс: 12:00&ndash;22:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contact-form-wrap">
+              <div class="contact-form-card">
+                <h3 class="form-title">Оставь заявку</h3>
+                <div class="form-field">
+                  <label class="form-label">Имя</label>
+                  <input type="text" class="form-input" placeholder="Как тебя зовут?" />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Телефон / Telegram</label>
+                  <input type="text" class="form-input" placeholder="+7 или @username" />
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Стиль / идея</label>
+                  <textarea class="form-input form-textarea" placeholder="Опиши идею татуировки..."></textarea>
+                </div>
+                <button class="btn btn-primary btn-full">Записаться на консультацию</button>
+              </div>
+            </div>
+          </div>
+          <div class="site-footer reveal-3d">
+            <p class="footer-copy">&copy; 2025 INK HEART. Все права защищены.</p>
+            <p class="footer-tagline">Твоё тело — наш холст &#10022;</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
