@@ -1,5 +1,5 @@
 ﻿/* ================================================================
-   INK HEART â€” Ð¢Ð°Ñ‚Ñƒ-ÑÑ‚ÑƒÐ´Ð¸Ñ | app.js
+   INK HEART — Тату-студия | app.js
    Cinematic Scroll Engine
    TOTAL_FRAMES: placeholder (update after ffmpeg)
 ================================================================ */
@@ -17,7 +17,7 @@ const FRAME_DIR = isMobile ? 'frames-mobile' : 'frames-webp';
 // === CANVAS SETUP ===
 const canvas = document.getElementById('gl-canvas');
 const ctx    = canvas.getContext('2d');
-let canvasDpr = 1; // module-level â€” CRITICAL: must match resize() and drawFrame()
+let canvasDpr = 1; // module-level — CRITICAL: must match resize() and drawFrame()
 
 function resize() {
   canvasDpr = Math.min(devicePixelRatio || 1, isMobile ? 1.5 : 2);
@@ -57,13 +57,13 @@ async function loadAll() {
           const bar = document.getElementById('progress-bar');
           if (bar) bar.style.width = pct + '%';
 
-          // First frame ready â€” start animation
+          // First frame ready — start animation
           if (loadedCount === 1) {
             isReady = true;
             startAnim();
           }
 
-          // All loaded â€” hide loader
+          // All loaded — hide loader
           if (loadedCount === TOTAL_FRAMES) {
             const loader = document.getElementById('loader');
             if (loader) {
@@ -99,7 +99,7 @@ function drawFrame(idx) {
   const img = frames[Math.max(0, Math.min(Math.round(idx), TOTAL_FRAMES - 1))];
   if (!img || !img.complete || !img.naturalWidth) return;
 
-  // Use innerWidth/innerHeight â€” ctx.setTransform already scales for DPR
+  // Use innerWidth/innerHeight — ctx.setTransform already scales for DPR
   // Do NOT divide canvas.width by devicePixelRatio (isMobile dpr != devicePixelRatio!)
   const W = innerWidth;
   const H = innerHeight;
@@ -114,7 +114,7 @@ function drawFrame(idx) {
   ctx.clearRect(0, 0, W, H);
   ctx.drawImage(img, x, y, iw, ih);
 
-  // Radial vignette (dark edges â€” deep red tint for ink aesthetic)
+  // Radial vignette (dark edges — deep red tint for ink aesthetic)
   const vig = ctx.createRadialGradient(W / 2, H / 2, H * 0.15, W / 2, H / 2, H * 0.85);
   vig.addColorStop(0, 'rgba(5,2,2,0)');
   vig.addColorStop(0.7, 'rgba(5,2,2,0.35)');
@@ -146,7 +146,7 @@ function startAnim() {
   loop();
 }
 
-// === INTERSECTION OBSERVER â€” Section activation ===
+// === INTERSECTION OBSERVER — Section activation ===
 const pages    = Array.from(document.querySelectorAll('.page'));
 const navLinks = Array.from(document.querySelectorAll('.nav-link'));
 
@@ -161,7 +161,7 @@ const observer = new IntersectionObserver((entries) => {
       const idx = pages.indexOf(entry.target);
       // Activate current page
       pages.forEach((p, i) => p.classList.toggle('is-active', i === idx));
-      // Update nav links (sections 1â€“5 map to nav links 0â€“4)
+      // Update nav links (sections 1–5 map to nav links 0–4)
       navLinks.forEach((l, i) => l.classList.toggle('active', i === idx - 1));
     }
   });
