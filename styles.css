@@ -1,4 +1,4 @@
-﻿/* ================================================================
+/* ================================================================
    INK HEART — Тату-студия | styles.css
    Design: Dark #050505 bg + Deep red neon #C0392B accent
    Fonts: Oswald (headings) + Inter (body)
@@ -92,6 +92,18 @@ img { display: block; max-width: 100%; }
   flex-direction: column;
   align-items: center;
   gap: 24px;
+}
+
+.loader-logo-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  animation: pulse-logo 2s ease-in-out infinite;
+}
+
+@keyframes pulse-logo {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
 }
 
 .loader-logo {
@@ -193,7 +205,7 @@ img { display: block; max-width: 100%; }
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.9);
   transition: color 0.25s;
   position: relative;
 }
@@ -523,7 +535,7 @@ img { display: block; max-width: 100%; }
   font-family: 'Inter', sans-serif;
   font-size: clamp(0.85rem, 1.5vw, 1rem);
   font-weight: 300;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.9);
   text-shadow: var(--ts-dark);
   line-height: 1.7;
 }
@@ -697,7 +709,7 @@ img { display: block; max-width: 100%; }
   font-family: 'Inter', sans-serif;
   font-size: clamp(0.8rem, 1.2vw, 0.9rem);
   font-weight: 300;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.9);
   line-height: 1.65;
   text-shadow: var(--ts-dark);
 }
@@ -818,8 +830,8 @@ img { display: block; max-width: 100%; }
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.2em;
-  color: var(--primary);
-  text-shadow: var(--ts-dark);
+  color: var(--accent2);
+  text-shadow: 0 0 8px rgba(231,76,60,0.6), var(--ts-dark);
 }
 
 .step-icon {
@@ -956,8 +968,10 @@ img { display: block; max-width: 100%; }
 /* ─── Contact Section ────────────────────────────────────────── */
 .contact-layout {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: 1fr;
   gap: 40px;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 .contact-card {
